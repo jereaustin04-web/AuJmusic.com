@@ -1,37 +1,51 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Player</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<title>Austin Music</title>
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
+
 <body>
+
+<header>
+<h1 class="logo">🎵 Austin Music</h1>
+<p>Listen • Discover • Enjoy</p>
+</header>
+
 
 <div class="player">
 
 <div class="top">
-<h2>🎵 My Music</h2>
+<h2>Now Playing</h2>
 
-<input type="text" placeholder="Search song...">
+<input type="text" placeholder="Search music...">
+
 </div>
+
 
 <div class="cover">
 <img src="cover.jpg" id="cover">
 </div>
 
+
 <h3 id="title">Song Title</h3>
+
 <p id="artist">Artist Name</p>
+
 
 <audio id="audio"></audio>
 
+
 <input type="range" id="progress" value="0">
+
 
 <div class="controls">
 
@@ -39,17 +53,21 @@
 <i class="fa-solid fa-shuffle"></i>
 </button>
 
+
 <button id="prev">
 <i class="fa-solid fa-backward-step"></i>
 </button>
+
 
 <button id="play">
 <i class="fa-solid fa-play"></i>
 </button>
 
+
 <button id="next">
 <i class="fa-solid fa-forward-step"></i>
 </button>
+
 
 <button id="repeat">
 <i class="fa-solid fa-repeat"></i>
@@ -57,11 +75,15 @@
 
 </div>
 
+
+
 <div class="bottom">
+
 
 <button id="like">
 <i class="fa-solid fa-heart"></i>
 </button>
+
 
 <div class="volume">
 
@@ -75,7 +97,15 @@ value="100">
 
 </div>
 
+
 </div>
+
+
+
+<h2 class="playlist-title">
+🎶 Playlist
+</h2>
+
 
 <ul id="playlist">
 
@@ -87,9 +117,16 @@ value="100">
 
 </ul>
 
+
 </div>
+
+
+<footer>
+<p>© 2026 Austin Music | All Rights Reserved</p>
+</footer>
+
 
 <script src="script.js"></script>
 
 </body>
-</html>
+ </html>
