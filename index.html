@@ -1,89 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Austin Music</title>
+<title>Austin Music Player</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#111,#8e2de2);
+  color:white;
+  text-align:center;
+}
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+.container{
+  margin:50px auto;
+  width:90%;
+  max-width:400px;
+  background:#222;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 0 20px black;
+}
+
+h1{
+  color:#00ffcc;
+}
+
+.cover{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  margin:20px;
+  border:5px solid #00ffcc;
+}
+
+audio{
+  width:100%;
+  margin-top:20px;
+}
+
+button, .download-btn{
+  display:inline-block;
+  margin:10px 5px;
+  padding:12px 18px;
+  border:none;
+  border-radius:25px;
+  background:#00ffcc;
+  color:#111;
+  font-size:16px;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+button:hover, .download-btn:hover{
+  background:white;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<header>
+<div class="container">
+
 <h1>🎵 Austin Music</h1>
-<p>Listen • Download • Enjoy</p>
-</header>
 
+<img class="cover" src="cover.jpg">
 
-<div class="player">
-
-<img src="cover.jpg" class="cover">
-
-
-<h2 id="title">
-Song Title
-</h2>
-
-<p id="artist">
-Artist Name
-</p>
-
+<h2>My Song</h2>
 
 <audio controls>
 <source src="nyimbo.mp3" type="audio/mp3">
 Your browser does not support audio.
 </audio>
 
+<br>
 
-<div class="buttons">
+<button onclick="playSong()">▶️ Play</button>
 
-<button>
-<i class="fa-solid fa-play"></i>
-Play
-</button>
+<button onclick="pauseSong()">⏸️ Pause</button>
 
+<button>⏮️ Previous</button>
 
-<a href="nyimbo.mp3" download class="download-btn">
-<i class="fa-solid fa-download"></i>
-Download
+<button>⏭️ Next</button>
+
+<br>
+
+<a class="download-btn" href="nyimbo.mp3" download>
+⬇️ Download Nyimbo
 </a>
 
 </div>
 
 
-<h2>
-🎶 Playlist
-</h2>
+<script>
 
+let song = document.querySelector("audio");
 
-<ul>
+function playSong(){
+song.play();
+}
 
-<li>🎵 Song 1</li>
+function pauseSong(){
+song.pause();
+}
 
-<li>🎵 Song 2</li>
-
-<li>🎵 Song 3</li>
-
-</ul>
-
-
-</div>
-
-
-<footer>
-
-<p>
-© 2026 Austin Music
-</p>
-
-</footer>
+</script>
 
 
 </body>
