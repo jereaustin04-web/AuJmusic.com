@@ -1,97 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+ <!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
+<title>AJ Music</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Austin Music Player</title>
 
 <style>
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:linear-gradient(135deg,#111,#8e2de2);
-  color:white;
-  text-align:center;
+background:#111827;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:30px;
 }
 
-.container{
-  margin:50px auto;
-  width:90%;
-  max-width:400px;
-  background:#222;
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 0 20px black;
+.box{
+background:#1f2937;
+padding:25px;
+border-radius:20px;
 }
 
 h1{
-  color:#00ffcc;
+color:#00d9ff;
 }
 
-.cover{
-  width:200px;
-  height:200px;
-  border-radius:50%;
-  margin:20px;
-  border:5px solid #00ffcc;
+button, label{
+background:#00d9ff;
+color:white;
+padding:12px 25px;
+border-radius:10px;
+border:none;
+font-size:16px;
+cursor:pointer;
 }
 
 audio{
-  width:100%;
-  margin-top:20px;
+width:100%;
+margin-top:25px;
 }
 
-button, .download-btn{
-  display:inline-block;
-  margin:10px 5px;
-  padding:12px 18px;
-  border:none;
-  border-radius:25px;
-  background:#00ffcc;
-  color:#111;
-  font-size:16px;
-  cursor:pointer;
-  text-decoration:none;
+.download{
+display:none;
+background:#22c55e;
+padding:12px 20px;
+border-radius:10px;
+color:white;
+text-decoration:none;
+margin-top:20px;
+display:inline-block;
 }
-
-button:hover, .download-btn:hover{
-  background:white;
-}
-
 </style>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="box">
 
-<h1>🎵 Austin Music</h1>
+<h1>🎵 AJ Music Player</h1>
 
-<img class="cover" src="cover.jpg">
+<label>
+📂 Choose Song
+<input type="file" id="song" accept="audio/*" hidden>
+</label>
 
-<h2>My Song</h2>
+<br><br>
 
-<audio controls>
-<source src="nyimbo.mp3" type="audio/mp3">
-Your browser does not support audio.
-</audio>
-
-<br>
-
-<button onclick="playSong()">▶️ Play</button>
-
-<button onclick="pauseSong()">⏸️ Pause</button>
-
-<button>⏮️ Previous</button>
-
-<button>⏭️ Next</button>
+<audio id="player" controls></audio>
 
 <br>
 
-<a class="download-btn" href="nyimbo.mp3" download>
-⬇️ Download Nyimbo
+<a id="download" class="download">
+⬇️ Download Song
 </a>
 
 </div>
@@ -99,22 +78,32 @@ Your browser does not support audio.
 
 <script>
 
-let song = document.querySelector("audio");
+let song=document.getElementById("song");
+let player=document.getElementById("player");
+let download=document.getElementById("download");
 
-function playSong(){
-song.play();
+
+song.onchange=function(){
+
+let file=this.files[0];
+
+if(file){
+
+let url=URL.createObjectURL(file);
+
+player.src=url;
+
+download.href=url;
+
+download.download=file.name;
+
+download.style.display="inline-block";
+
 }
 
-function pauseSong(){
-song.pause();
 }
-
-
 
 </script>
 
-
 </body>
 </html>
-<input type="file" id="songFile" accept="audio/*">
-<button id="uploadBtn">Upload Nyimbo</button>
